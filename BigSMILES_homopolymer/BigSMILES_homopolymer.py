@@ -473,7 +473,7 @@ class SMILES2BigSMILES:
             self.BigSMILES_data = []
             aa = None
 
-    def converting_single(self, SMILES, move_parallel=-1):
+    def Converting_single(self, SMILES, move_parallel=-1):
         ### SMILES to BigSMILES converting function
         ### for single SMILES input
         ###
