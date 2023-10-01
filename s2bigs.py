@@ -485,7 +485,7 @@ class SMILES2BigSMILES:
 
 
 
-    def s2bigs_converting_single(self, SMILES, move_parallel=-1):
+    def Converting_single(self, SMILES, move_parallel=-1):
         ### SMILES to BigSMILES converting function
         ### for single SMILES input
         ###
