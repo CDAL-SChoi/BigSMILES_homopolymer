@@ -54,7 +54,7 @@ class BigSMILES2SMILES:
         self.num = len(self.BigSMILES_data)
 
         
-    def bigs2s_converting(self, resultfile='result'):
+    def Converting(self, resultfile='result'):
         self.SMILES_data = []
         kk = 0
         
