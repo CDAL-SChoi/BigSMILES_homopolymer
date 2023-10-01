@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='BigSMILES_Homopolymer',
+    name='BigSMILES_homopolymer',
     version='1.0.0',
     description='An automated BigSMILES conversion workflow for homopolymeric macromolecules',
     url='https://github.com/CDAL-SChoi/BigSMILES_homopolymer',
