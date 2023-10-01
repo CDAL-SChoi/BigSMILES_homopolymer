@@ -14,7 +14,8 @@ from rdkit import RDLogger
 
 ###         Sunho Choi (schoi_@korea.ac.kr)
 ###         Korea University, School of Electrical Engineering
-###         23.09.30
+###         23.10.02
+###         version : 1.0.2
 ###
 ###         Article:
 ###         An automated BigSMILES conversion workflow and dataset for homopolymeric macromolecules
