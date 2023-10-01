@@ -291,7 +291,7 @@ class SMILES2BigSMILES:
 
     ### function to conver SMILES to BigSMILES
 
-    def s2bigs_converting(self, resultfile='result', move_parallel=-1):
+    def converting(self, resultfile='result', move_parallel=-1):
         ### SMILES to BigSMILES converting function
         ### for file input
         ### Previously, data loading functions should be used.
@@ -473,7 +473,7 @@ class SMILES2BigSMILES:
             self.BigSMILES_data = []
             aa = None
 
-    def s2bigs_converting_single(self, SMILES, move_parallel=-1):
+    def converting_single(self, SMILES, move_parallel=-1):
         ### SMILES to BigSMILES converting function
         ### for single SMILES input
         ###
@@ -657,7 +657,7 @@ class BigSMILES2SMILES:
 
         self.num = len(self.BigSMILES_data)
 
-    def bigs2s_converting(self, resultfile='result'):
+    def converting(self, resultfile='result'):
         self.SMILES_data = []
         kk = 0
 
