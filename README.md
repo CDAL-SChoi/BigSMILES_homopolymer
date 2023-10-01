@@ -14,6 +14,20 @@ SMILES has been utilized in various artificial intelligence analyses due to its 
 pip install git+https://github.com/CDAL-SChoi/BigSMILES_homopolymer.git
 ```
 
+## Example code fo SMILES to BigSMILES conversion of single SMILES
+
+```py
+from BigSMILES_homopolymer import SMILES2BigSMILES as s2bigs
+
+test=s2bigs()
+smileslist=['*CCCCO*', '*N[Si](*)(C)C', '*CC=C(C*)CCCC', '*CC(*)OCCCCCCCC']
+result=[]
+for i in range(len(smileslist)):
+  result.append(test.Converting_single(SMILES=smileslist[i]))
+
+print(result)
+```
+
 
 ## The workflow of the s2bigs.py code
 ![figure 3](https://github.com/CDAL-SChoi/BigSMILES_homopolymer/assets/50295574/ec6b6b03-1387-459f-b823-ba429bd91ebd)
