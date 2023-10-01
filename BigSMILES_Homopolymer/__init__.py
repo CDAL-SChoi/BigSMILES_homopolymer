@@ -1,1 +1,0 @@
-from .BigSMILES_Homopolymer import *
