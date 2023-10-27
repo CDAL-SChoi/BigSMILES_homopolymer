@@ -14,8 +14,8 @@ from rdkit import RDLogger
 
 ###         Sunho Choi (schoi_@korea.ac.kr)
 ###         Korea University, School of Electrical Engineering
-###         23.10.02
-###         version : 1.0.2
+###         23.10.27
+###         version : 1.0.3
 ###
 ###         Article:
 ###         An automated BigSMILES conversion workflow and dataset for homopolymeric macromolecules
@@ -327,6 +327,9 @@ class SMILES2BigSMILES:
                 self.BigSMILES_data = []
                 aa = None
 
+            if Counter(self.SMILES_data[i])['*'] != 2:
+                self.BigSMILES_data.append('')
+                continue
 
             tmp = Chem.MolToSmiles(Chem.MolFromSmiles(self.SMILES_data[i]))
             tmp = re.sub(r'(\[[^\[^\]^\-]*)-([^\[^\]^\-]*\])', '\\1:\\2', tmp)
