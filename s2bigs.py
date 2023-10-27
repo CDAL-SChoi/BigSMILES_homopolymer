@@ -506,7 +506,7 @@ class SMILES2BigSMILES:
         tmp = re.sub('-', '', tmp)
         SMILES = re.sub(':', '-', tmp)
 
-        if Counter(self.SMILES_data[i])['*'] != 2:
+        if Counter(SMILES)['*'] != 2:
             return "The SMILES must contain two asterisks."
 
         br = self.switching(SMILES)
