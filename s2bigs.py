@@ -349,7 +349,7 @@ class SMILES2BigSMILES:
                 continue
 
             
-            ### """SMILES to BigSMILES conversion algorithm""" stage ###
+            ### "SMILES to BigSMILES conversion algorithm" stage ###
                 
             temporary_SMILES =[SMILES.strip('*')]
 
@@ -507,14 +507,17 @@ class SMILES2BigSMILES:
         ###                 default = -1 (searching all ordering)
         ###                 For integers greater than or equal to 0, reorder by that number of times
 
-            
+
+
+        ### "Preprocessing SMILES" stage ###
+
+        if Counter(SMILES)['*'] != 2:
+            return "The SMILES must contain two asterisks."
+        
         tmp = Chem.MolToSmiles(Chem.MolFromSmiles(SMILES))
         tmp = re.sub(r'(\[[^\[^\]^\-]*)-([^\[^\]^\-]*\])', '\\1:\\2', tmp)
         tmp = re.sub('-', '', tmp)
         SMILES = re.sub(':', '-', tmp)
-
-        if Counter(SMILES)['*'] != 2:
-            return "The SMILES must contain two asterisks."
 
         br = self.switching(SMILES)
 
@@ -522,6 +525,9 @@ class SMILES2BigSMILES:
             SMILES = br
         else:
             return 0
+
+
+        ### "SMILES to BigSMILES conversion algorithm" stage ###
                 
         temporary_SMILES =[SMILES.strip('*')]
 
