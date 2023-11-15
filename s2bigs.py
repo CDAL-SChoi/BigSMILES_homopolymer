@@ -313,6 +313,7 @@ class SMILES2BigSMILES:
         ###                 default = -1 (searching all ordering)
         ###                 For integers greater than or equal to 0, reorder by that number of times
 
+        
         self.BigSMILES_data = []
         kk = 0
 
@@ -326,6 +327,9 @@ class SMILES2BigSMILES:
                 kk = i
                 self.BigSMILES_data = []
                 aa = None
+
+            
+            ### "Preprocessing SMILES" stage ###
 
             if Counter(self.SMILES_data[i])['*'] != 2:
                 self.BigSMILES_data.append('')
@@ -343,6 +347,9 @@ class SMILES2BigSMILES:
             else:
                 self.BigSMILES_data.append('')
                 continue
+
+            
+            ### """SMILES to BigSMILES conversion algorithm""" stage ###
                 
             temporary_SMILES =[SMILES.strip('*')]
 
