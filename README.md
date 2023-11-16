@@ -44,7 +44,8 @@ print(result)
 ```
 
 ## The workflow of the s2bigs.py code
-![figure 3](https://github.com/CDAL-SChoi/BigSMILES_homopolymer/assets/50295574/ec6b6b03-1387-459f-b823-ba429bd91ebd)
+![workflow_revised](https://github.com/CDAL-SChoi/BigSMILES_homopolymer/assets/50295574/37062d6c-9489-4115-b0aa-2b2c0627f2f3)
+
 
 
 
