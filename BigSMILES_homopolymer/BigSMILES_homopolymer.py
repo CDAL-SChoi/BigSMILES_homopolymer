@@ -14,11 +14,18 @@ from rdkit import RDLogger
 
 ###         Sunho Choi (schoi_@korea.ac.kr)
 ###         Korea University, School of Electrical Engineering
-###         23.10.02
-###         version : 1.0.2
+###         24.03.13
+###         version : 1.0.3
 ###
 ###         Article:
 ###         An automated BigSMILES conversion workflow and dataset for homopolymeric macromolecules
+###
+###
+###
+### Additional notes in 24.03.13 :
+###
+### Note that this SMILES to BigSMILES converter operates to convert to the BigSMILES version 1.0 notation, as defined in original BigSMILES paper(2019).
+### To convert BigSMILES to version 1.1, use the class version_conveter defined from line 725 onwards to convert BigSMILES created with 1.0.
 ###
 
 
@@ -290,7 +297,7 @@ class SMILES2BigSMILES:
                 ### fail if asterisks are not located at both ends
                 return None
 
-    ### function to conver SMILES to BigSMILES
+    ### function to convert SMILES to BigSMILES
 
     def Converting(self, resultfile='result', move_parallel=-1):
         ### SMILES to BigSMILES converting function
@@ -710,3 +717,30 @@ class BigSMILES2SMILES:
         BigSMILES = Chem.MolToSmiles(Chem.MolFromSmiles(BigSMILES))
 
         return BigSMILES
+
+
+
+
+
+class version_converter:
+    def zero2one(self, BigSMILES_ver10):
+        tmp = BigSMILES_ver10
+        tmp = re.sub('<,>', '[<],[>]', tmp)
+        tmp = re.sub('>,<', '[>],[<]', tmp)
+        tmp = re.sub('{<', '{[][<]', tmp)
+        tmp = re.sub('>}', '[>][]}', tmp)
+        tmp = re.sub('{$', '{[][$]', tmp)
+        tmp = re.sub('$}', '[$][]}', tmp)
+        return tmp
+    
+    
+    def one2zero(self, BigSMILES_ver11):
+        tmp = BigSMILES_ver11
+        tmp = re.sub('[<],[>]', '<,>', tmp)
+        tmp = re.sub('[>],[<]', '>,<', tmp)
+        tmp = re.sub('{[][<]', '{<', tmp)
+        tmp = re.sub('[>][]}', '>}', tmp)
+        tmp = re.sub('{[][$]', '{$', tmp)
+        tmp = re.sub('[$][]}', '$}', tmp)
+        return tmp
+    
