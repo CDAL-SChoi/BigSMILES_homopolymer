@@ -729,18 +729,18 @@ class version_converter:
         tmp = re.sub('>,<', '[>],[<]', tmp)
         tmp = re.sub('{<', '{[][<]', tmp)
         tmp = re.sub('>}', '[>][]}', tmp)
-        tmp = re.sub('{$', '{[][$]', tmp)
-        tmp = re.sub('$}', '[$][]}', tmp)
+        tmp = re.sub('{\$', '{[][$]', tmp)
+        tmp = re.sub('\$}', '[$][]}', tmp)
         return tmp
     
     
     def one2zero(self, BigSMILES_ver11):
         tmp = BigSMILES_ver11
-        tmp = re.sub('[<],[>]', '<,>', tmp)
-        tmp = re.sub('[>],[<]', '>,<', tmp)
-        tmp = re.sub('{[][<]', '{<', tmp)
-        tmp = re.sub('[>][]}', '>}', tmp)
-        tmp = re.sub('{[][$]', '{$', tmp)
-        tmp = re.sub('[$][]}', '$}', tmp)
+        tmp = re.sub('\[<\],\[>\]', '<,>', tmp)
+        tmp = re.sub('\[>\],\[<\]', '>,<', tmp)
+        tmp = re.sub('{\[\]\[<\]', '{<', tmp)
+        tmp = re.sub('\[>\]\[\]}', '>}', tmp)
+        tmp = re.sub('{\[\]\[\$\]', '{$', tmp)
+        tmp = re.sub('\[\$\]\[\]}', '$}', tmp)
         return tmp
     
