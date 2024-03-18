@@ -14,18 +14,18 @@ from rdkit import RDLogger
 
 ###         Sunho Choi (schoi_@korea.ac.kr)
 ###         Korea University, School of Electrical Engineering
-###         24.03.13
-###         version : 1.0.3
+###         24.03.18
+###         version : 1.0.4
 ###
 ###         Article:
 ###         An automated BigSMILES conversion workflow and dataset for homopolymeric macromolecules
 ###
 ###
 ###
-### Additional notes in 24.03.13 :
+### Additional notes in 24.03.18 :
 ###
 ### Note that this SMILES to BigSMILES converter operates to convert to the BigSMILES version 1.0 notation, as defined in original BigSMILES paper(2019).
-### To convert BigSMILES to version 1.1, use the class version_conveter defined from line 725 onwards to convert BigSMILES created with 1.0.
+### To convert BigSMILES to version 1.1, use the class version_conveter defined from line 730 onwards to convert BigSMILES created with 1.0.
 ###
 
 
@@ -719,8 +719,13 @@ class BigSMILES2SMILES:
         return BigSMILES
 
 
-
-
+###
+### BigSMILES version converter, between 1.0 and 1.1
+### the rules from the link below to work with bigsmiles parser version 0.0.10 released on 23 May 2018
+###
+### BigSMILES 1.1 version description : https://olsenlabmit.github.io/BigSMILES/docs/line_notation.html
+### bigsmiles parser 0.0.10 :           https://github.com/dylanwal/BigSMILES
+###
 
 class version_converter:
     def zero2one(self, BigSMILES_ver10):
@@ -728,8 +733,14 @@ class version_converter:
         tmp = re.sub('<,>', '[<],[>]', tmp)
         tmp = re.sub('>,<', '[>],[<]', tmp)
         tmp = re.sub('{<', '{[][<]', tmp)
+        tmp = re.sub(r'\)>}', ')[>]}', tmp)     # Works with bigsmiles parser 0.0.10, but not mentioned in the 1.1 version description
+        if re.search(r'\d>}', tmp):             # Works with bigsmiles parser 0.0.10, but not mentioned in the 1.1 version description
+            tmp = re.sub(r'>}', '[>]}', tmp)
         tmp = re.sub('>}', '[>][]}', tmp)
         tmp = re.sub('{\$', '{[][$]', tmp)
+        tmp = re.sub(r'\)\$}', ')[$]}', tmp)    # Works with bigsmiles parser 0.0.10, but not mentioned in the 1.1 version description
+        if re.search(r'\d\$}', tmp):            # Works with bigsmiles parser 0.0.10, but not mentioned in the 1.1 version description
+            tmp = re.sub(r'\$}', '[$]}', tmp)
         tmp = re.sub('\$}', '[$][]}', tmp)
         return tmp
     
@@ -740,7 +751,9 @@ class version_converter:
         tmp = re.sub('\[>\],\[<\]', '>,<', tmp)
         tmp = re.sub('{\[\]\[<\]', '{<', tmp)
         tmp = re.sub('\[>\]\[\]}', '>}', tmp)
+        tmp = re.sub(r'\[>\]}', '>}', tmp)        # Works with bigsmiles parser 0.0.10, but not mentioned in the 1.1 version description
         tmp = re.sub('{\[\]\[\$\]', '{$', tmp)
+        tmp = re.sub(r'\[\$\]}', '$}', tmp)       # Works with bigsmiles parser 0.0.10, but not mentioned in the 1.1 version description
         tmp = re.sub('\[\$\]\[\]}', '$}', tmp)
         return tmp
     
