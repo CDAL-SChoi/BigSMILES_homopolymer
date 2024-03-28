@@ -14,7 +14,7 @@ from rdkit import RDLogger
 
 ###         Sunho Choi (schoi_@korea.ac.kr)
 ###         Korea University, School of Electrical Engineering
-###         24.03.18
+###         24.03.28
 ###         version : 1.0.4
 ###
 ###         Article:
