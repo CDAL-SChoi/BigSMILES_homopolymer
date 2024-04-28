@@ -12,6 +12,9 @@ To check the detailed BigSMILES line notation rules, visit [documentation](https
 **Abstract:**
 The simplified molecular-input line-entry system (SMILES) has been utilized in a variety of artificial intelligence analyses owing to its capability of representing chemical structures using line notation. However, its ease of representation is limited, which has led to the proposal of BigSMILES as an alternative method suitable for the representation of macromolecules. Nevertheless, research on BigSMILES remains limited due to its preprocessing requirements. Thus, this study proposes a conversion workflow of BigSMILES, focusing on its automated generation from SMILES representations of homopolymers. BigSMILES representations for 4,927,181 records are provided, thereby enabling its immediate use for various research and development applications. Our study presents detailed descriptions on a validation process to ensure the accuracy, interchangeability, and robustness of the conversion. Additionally, a systematic overview of utilized codes and functions that emphasizes their relevance in the context of BigSMILES generation are produced. This advancement is anticipated to significantly aid researchers and facilitate further studies in BigSMILES representation, including potential applications in deep learning and further extension to complex structures such as copolymers.
 
+**Article information**  
+Choi, S., Lee, J., Seo, J. et al. Automated BigSMILES conversion workflow and dataset for homopolymeric macromolecules. Sci Data 11, 371 (2024). https://doi.org/10.1038/s41597-024-03212-4
+
 ## Install BigSMILES_homopolymer package
 ```py
 pip install git+https://github.com/CDAL-SChoi/BigSMILES_homopolymer.git
