@@ -18,7 +18,7 @@ from rdkit import RDLogger
 ###         version : 1.0.5
 ###
 ###         Article:
-###         An automated BigSMILES conversion workflow and dataset for homopolymeric macromolecules
+###         Automated BigSMILES conversion workflow and dataset for homopolymeric macromolecules
 ###
 ###
 ###
