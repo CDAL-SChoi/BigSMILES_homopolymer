@@ -14,8 +14,8 @@ from rdkit import RDLogger
 
 ###         Sunho Choi (schoi_@korea.ac.kr)
 ###         Korea University, School of Electrical Engineering
-###         24.03.28
-###         version : 1.0.4
+###         24.05.28
+###         version : 1.0.5
 ###
 ###         Article:
 ###         An automated BigSMILES conversion workflow and dataset for homopolymeric macromolecules
@@ -253,7 +253,7 @@ class SMILES2BigSMILES:
                 tmp2 = re.sub('(\[[a-zA-Z]?)\d\d([a-zA-Z]?\])', '\\1AA\\2', tmp2)
                 tmp2 = re.sub('(\[[a-zA-Z]?)\d\d\d([a-zA-Z]?\])', '\\1AAA\\2', tmp2)
 
-                counts = Counter(re.sub(r'\[[^()]*\]|\s-\s.*', '', tmp2[small_x:small_y]))
+                counts = Counter(tmp2[small_x:small_y])        ### changed in ver 1.0.5
                 num_switches = []
                 for nu in self.nums:
                     if counts[nu] % 2 != 0: num_switches.append(nu)
