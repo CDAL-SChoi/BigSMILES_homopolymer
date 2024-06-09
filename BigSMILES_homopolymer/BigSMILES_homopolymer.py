@@ -14,8 +14,8 @@ from rdkit import RDLogger
 
 ###         Sunho Choi (schoi_@korea.ac.kr)
 ###         Korea University, School of Electrical Engineering
-###         24.05.28
-###         version : 1.0.5
+###         24.06.09
+###         version : 1.0.6
 ###
 ###         Article:
 ###         Automated BigSMILES conversion workflow and dataset for homopolymeric macromolecules
@@ -277,8 +277,7 @@ class SMILES2BigSMILES:
                             tmp = ''.join(tmp)
 
                 if not_large_x:
-                    if not_large_x:
-                tmp = tmp[:large_x] + tmp[large_x:small_x] + tmp[not_large_x:not_large_y+1] + tmp[small_x] + tmp[not_large_y + 1:large_y] + tmp[
+                    tmp = tmp[:large_x] + tmp[large_x:small_x] + tmp[not_large_x:not_large_y+1] + tmp[small_x] + tmp[not_large_y + 1:large_y] + tmp[
                                                                                                 small_y] + tmp[small_x + 1:small_y] + tmp[large_y:]        ## changed in ver 1.0.5
                 elif check2 >= 0:
                     tmp = tmp[:large_x] + tmp[large_x:small_x + 1] + tmp[small_y + 1:large_y] + ')' + tmp[
